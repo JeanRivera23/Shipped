@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-
   devise_for :employees, :controllers => { registrations: 'registrations' }
 
   root to: "home#index"
-
-  get '/' => "home#index"
 
   resources :boats, :jobs
 

@@ -1,9 +1,4 @@
 class BoatsController < ApplicationController
-  def index
-    @boats = Boat.all
-    @jobs = Job.all
-  end
-
 
   def new
     @boat = Boat.new
@@ -16,6 +11,8 @@ class BoatsController < ApplicationController
       containers: params[:boat][:containers],
       location: params[:boat][:location]
     )
+
+    @boat.save
 
     if @boat.save
       redirect_to boat_path
