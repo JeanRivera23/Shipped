@@ -1,0 +1,14 @@
+<%= form_for @boat do |f| %>
+
+          <%= f.label :name, class: "formLabel" %>
+          <%= f.text_field :name %><br> <br>
+
+          <%= f.label :containers, class: "formLabel" %>
+          <%= f.text_field :containers %><br> <br>
+
+          <%= f.label :location, class: "formLabel" %>
+          <%= f.select_tag(:location, options_for_select(["Bahamas", "Canada", "Chile", "Jamaica", "Mexico", "New York", "North Carolina"])) %><br> <br>
+
+          <%= f.submit, class: "btn", id: "boatFormBtn" %>
+
+        <% end %>
