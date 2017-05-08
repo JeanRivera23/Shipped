@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   background-image: url('/assets/background.gif');
+   font-family: 'Open Sans', sans-serif;
+   height: 100%;
+   padding: 2%;
+ }
+
+ .contentContainer {
+   position: absolute;
+   margin: auto;
+   top: 0px;
+   right: 0px;
+   bottom: 0px;
+   left: 0px;
+   width: 600px;
+   height: 300px;
+   padding: 25px;
+   background-color: white;
+   border: 15px solid navy;
+ }
+
+h1 {
+  font-weight: bold;
+  color: navy;
+  text-align: center;
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.btn {
+  margin: 10px;
+  background-color: navy;
+  color: white;
+  width: 120px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px dashed white;
+  box-shadow: 0 0 0 6px navy, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+  font-size: 15px;
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
+.btn:hover {
+  background-color: #c40606;
+  box-shadow: 0 0 0 6px #c40606, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+}

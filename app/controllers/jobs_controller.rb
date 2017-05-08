@@ -1,9 +1,4 @@
 class JobsController < ApplicationController
-  def index
-    @jobs = Job.all
-    @boats = Boat.all
-  end
-
 
   def new
     @job = Job.new
@@ -12,15 +7,14 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(
-      name: params[:job][:name],
-      containers: params[:job][:containers],
-      location: params[:job][:location]
+      params_jobs
     )
 
     @job.save
 
     if @job.save
-      redirect_to job_path
+      redirect_to job_path(@job)
+      # job_path(@job) same as /jobs/#{@job.id}
     else
       render new_job_path
     end
@@ -28,14 +22,35 @@ class JobsController < ApplicationController
 
 
   def show
+    @job = Job.find(params[:id])
   end
 
   def edit
+    @job = Job.find(params[:id])
   end
 
   def update
+    @job = Job.find(params[:id])
+
+    @job.update(
+      params_jobs
+    )
+
+    if @job.save
+      redirect_to job_path(@job)
+      # job_path(@job) same as /jobs/#{@job.id}
+    else
+      render edit_job_path
+    end
   end
+
 
   def destroy
   end
+
+  private
+  def params_jobs
+    params.require(:job).permit(:name, :description, :containers, :cost, :origin, :destination)
+  end
+
 end
